@@ -1,0 +1,42 @@
+﻿@model IEnumerable<T5_Hospital.Models.StaffDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<div>
+    <a class="btn btn-primary" href="/Staff/New">Add Staff</a>
+    <a href="/Department/List" class="btn btn-info">View Departments</a>
+</div>
+<div class="text-center my-2">
+    <form action="/Staff/List" method="get">
+        <input type="text" id="search" placeholder="Ex. Dogukan" name="StaffSearch" />
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+</div>
+
+
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th class="text-center">Staff Name</th>
+            <th class="text-center">Department</th>
+            <th colspan="2">Controls</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var staff in Model)
+        {
+            <tr>
+                <td>@staff.Name</td>
+                <td>@staff.DepartmentName</td>
+                <td>
+                    <a href="/Staff/Details/@staff.Id">Details</a>
+                </td>
+                <td>
+                    <a href="/Staff/Remove/@staff.Id">Remove</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

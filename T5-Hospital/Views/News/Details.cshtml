@@ -1,0 +1,54 @@
+﻿@model T5_Hospital.Models.NewsDto
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="list-group">
+            <div class="list-group-item">
+                <h2 class="list-group-item-heading text-center">News Details</h2>
+                <div class="list-group-item-text">
+                    <div class="row">
+                        <div class="col-sm-4">News Title</div>
+                        <div class="col-sm-8">@Model.NewsTitle</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">News Content</div>
+                        <div class="col-sm-8">@Model.NewsContent</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">Publish Date</div>
+                        <div class="col-sm-8">@Model.NewsDate.ToUniversalTime().ToString("u").Split(' ')[0]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="list-group">
+            <div class="list-group-item">
+                <h2 class="list-group-item-heading text-center">Department Related to this News</h2>
+                <div class="list-group-item-text">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>Department: <a href="/Department/Details/@Model.DepartmentId">@Model.DepartmentName</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center">
+    <a class="btn btn-info" href="/News/Edit/@Model.NewsId" role="button">Update</a>
+    <a class="btn btn-danger" href="/News/Remove/@Model.NewsId" role="button">Delete</a>
+</div>
+
+<div class="col-md-12 text-center">
+    <a class="primary-light" href="/News/List">Back to list</a>
+</div>

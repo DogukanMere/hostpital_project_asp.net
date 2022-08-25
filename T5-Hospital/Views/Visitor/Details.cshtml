@@ -1,0 +1,55 @@
+﻿@model T5_Hospital.Models.ViewModels.DetailsVisitor
+@{
+    ViewBag.Title = "Visitor Details";
+}
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="list-group">
+            <div class="list-group-item">
+                <h2 class="list-group-item-heading text-center">Visitor Details</h2>
+                <div class="list-group-item-text">
+                    <div class="row">
+                        <div class="col-sm-4">First Name</div>
+                        <div class="col-sm-8">@Model.SelectedVisitor.FirstName</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">Last Name</div>
+                        <div class="col-sm-8">@Model.SelectedVisitor.LastName</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="list-group">
+            <div class="list-group-item">
+                <h2 class="list-group-item-heading text-center">Patients Visitor is Visiting</h2>
+                <div class="list-group-item-text">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @foreach (var patient in Model.PatientsVisiting)
+                            {
+                                 <a href="/Visitation/Details/@patient.VisitationId">@patient.PatientFirstName</a><br />
+                            }
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <a href="/Patient/New">New Patient</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center">
+    <a class="btn btn-info" href="/Visitor/Edit/@Model.SelectedVisitor.VisitorId">Edit</a>
+    <a class="btn btn-danger" href="/Visitor/Remove/@Model.SelectedVisitor.VisitorId">Remove</a>
+</div>
+<div class="col-md-12 text-center">
+    <a href="/Visitor/List">Back to list</a>
+</div>

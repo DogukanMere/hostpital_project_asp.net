@@ -1,0 +1,13 @@
+﻿@model T5_Hospital.Models.DonationDto
+
+@{
+    ViewBag.Title = "Remove";
+}
+
+
+<h2>Remove Donation</h2>
+<p>Are you sure you want to remove donate @Model.DonationAmount $ to @Model.DonorFirstName @Model.DonorLastName?</p>
+<form method="post" action="/Donation/Delete/@Model.DonationId">
+    <input class="btn btn-primary" type="submit" formaction="/Donation/List" value="Go Back" />
+    <input class="btn btn-danger" type="submit" value="Delete" />
+</form>

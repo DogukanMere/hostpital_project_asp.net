@@ -1,0 +1,151 @@
+﻿@model T5_Hospital.Models.ViewModels.DetailsDepartmentServices
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="list-group">
+            <div class="list-group-item">
+                <h2 class="list-group-item-heading text-center">Department Details</h2>
+                <div class="list-group-item-text">
+                    <div class="row">
+                        <div class="col-sm-4">Department Name</div>
+                        <div class="col-sm-8"> @Model.Department.DepartmentName</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">Description</div>
+                        <div class="col-sm-8">@Model.Department.DepartmentDescription</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center">
+    <a class="btn btn-info" href="/Department/Edit/@Model.Department.DepartmentId">Edit</a>
+    <a class="btn btn-danger" href="/Department/Remove/@Model.Department.DepartmentId">Remove</a>
+</div>
+<div class="col-md-12 text-center">
+    <a href="/Department/List">Back to list</a>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="list-group">
+            <div class="list-group-item">
+                <h2 class="list-group-item-heading text-center">Services</h2>
+                <div class="list-group-item-text">
+                    <div class="row">
+                        <div class="col-sm-12 my-2">
+                            @foreach (var service in Model.Services)
+                            {
+                            <a target="_blank" href="/Service/Details/@service.ServiceId">@service.ServiceName</a><br />
+                            }
+                        </div>
+                        <div class="col-sm-12 my-2 text-center">
+                            <a href="/Service/New">New Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="list-group">
+            <div class="list-group-item">
+                <h2 class="list-group-item-heading text-center">Staffs</h2>
+                <div class="list-group-item-text">
+                    <div class="row">
+                        <div class="col-sm-12 my-2">
+                            @foreach (var staff in Model.Staffs)
+                            {
+                            <a target="_blank" href="/Staff/Details/@staff.Id">@staff.Name</a><br />
+                            }
+                        </div>
+                        <div class="col-sm-12 my-2 text-center">
+                            <a href="/Staff/New">New Staff</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="list-group">
+            <div class="list-group-item">
+                <h2 class="list-group-item-heading text-center">News</h2>
+                <div class="list-group-item-text">
+                    <div class="row">
+                        <div class="col-sm-12 my-2">
+                            @foreach (var news in Model.News)
+                            {
+                            <a target="_blank" href="/News/Details/@news.NewsId">@news.NewsTitle</a><br />
+                            }
+                        </div>
+                        <div class="col-sm-12 my-2 text-center">
+                            <a href="/News/New">New News</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="list-group">
+            <div class="list-group-item">
+                <h2 class="list-group-item-heading text-center">Donations</h2>
+                <div class="list-group-item-text">
+                    <div class="row">
+                        <div class="col-sm-12 my-2">
+                            @foreach (var donation in Model.Donations)
+                            {
+                                <a target="_blank" href="/Donation/Details/@donation.DonationId">@donation.DonationAmount on @donation.DonationDate</a><br />
+                            }
+                        </div>
+                        <div class="col-sm-12 my-2 text-center">
+                            <a href="/Donation/New">New Donation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="list-group">
+            <div class="list-group-item">
+                <h2 class="list-group-item-heading text-center">Careers</h2>
+                <div class="list-group-item-text">
+                    <div class="row">
+                        <div class="col-sm-12 my-2">
+                            @foreach (var career in Model.Careers)
+                            {
+                                <a target="_blank" href="/Career/Details/@career.JobId">@career.JobTitle</a><br />
+                            }
+                        </div>
+                        <div class="col-sm-12 my-2 text-center">
+                            <a href="/Career/New">New Career</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

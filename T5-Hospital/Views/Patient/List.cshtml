@@ -1,0 +1,41 @@
+﻿@model IEnumerable<T5_Hospital.Models.PatientDto>
+@{
+    ViewBag.Title = "List Patients";
+}
+
+<h2>List Patients</h2>
+<div>
+    <a class="btn btn-primary" href="/Patient/New">New Patient</a>
+    <a class="btn btn-success" href="/Visitation/List">View Visitations</a>
+    <a class="btn btn-info" href="/Visitor/List">View Visitors</a>
+</div>
+<div class="text-center my-2">
+    <form action="/Patient/List" method="get">
+        <input type="text" placeholder="Search Patients..." name="PatientSearch" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </form>
+</div>
+<table class="table table-hover text-center">
+    <thead>
+        <tr>
+            <th class="text-center">Patient First Name</th>
+            <th class="text-center">Patient Last Name</th>
+            <th colspan="2">Controls</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var patient in Model)
+        {
+            <tr>
+                <td>@patient.FirstName</td>
+                <td>@patient.LastName</td>
+                <td>
+                    <a href="/Patient/Details/@patient.PatientId">Details</a>
+                </td>
+                <td>
+                    <a href="/Patient/Remove/@patient.PatientId">Remove</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
